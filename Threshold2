@@ -86,30 +86,30 @@ try:
      PWM = PWM + 10	#Increase the speed of the robot
      Ab.setPWMA(PWM)
      Ab.setPWMB(PWM)
-					print(PWM)	 #Display its current speed
-			if key == 0x07: 	 #When - key pressed
-				if(PWM - 10 > -1):
-					PWM = PWM - 10   #Decrease the speed of the robot
-					Ab.setPWMA(PWM)
-					Ab.setPWMB(PWM)
-					print(PWM)	 #Display its current speed
-			if key == 0x09:   #When EQ key pressed
-				print("Camera Preview ON")			
-				camera.start_preview()	 #Starting the camera preview
-				time.sleep(2)
-			if key == 0x16:  #If 0 key pressed				
-				print("Taking a picture ...")
-				camera.capture('obstacle.jpg')	 #Take a picture
-				#img= cv2.imread('obstacle.jpg')	  #Define the image as a variable
-				#img2bw = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)  #Convert the original picture into a B&W picture
-				#retval, threshold = cv2.threshold(img2bw,10,255,cv2.THRESH_BINARY)  #Define the B&W threshold
-				#cv2.imshow('Original',img)					#Display original picture
-				#cv2.imshow('Black & White',img2bw)		#Display B&W picture
-			if key == 0x44: #When << key pressed					
-				camera.stop_preview()
-		else:
-			n += 1
-			if n > 20000:
+     print(PWM)	 #Display its current speed
+   if key == 0x07: 	 #When - key pressed
+    if(PWM - 10 > -1):
+     PWM = PWM - 10   #Decrease the speed of the robot
+     Ab.setPWMA(PWM)
+     Ab.setPWMB(PWM)
+     print(PWM)	 #Display its current speed
+   if key == 0x09:   #When EQ key pressed
+    print("Camera Preview ON")			
+    camera.start_preview()	 #Starting the camera preview
+    time.sleep(2)
+   if key == 0x16:  #If 0 key pressed				
+    print("Taking a picture ...")
+    camera.capture('obstacle.jpg')	 #Take a picture
+    #img= cv2.imread('obstacle.jpg')	  #Define the image as a variable
+    #img2bw = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)  #Convert the original picture into a B&W picture
+    #retval, threshold = cv2.threshold(img2bw,10,255,cv2.THRESH_BINARY)  #Define the B&W threshold
+    #cv2.imshow('Original',img)					#Display original picture
+    #cv2.imshow('Black & White',img2bw)		#Display B&W picture
+   if key == 0x44: #When << key pressed					
+    camera.stop_preview()
+  else:
+   n += 1
+   if n > 20000:
 				n = 0
 				Ab.stop()													
 except KeyboardInterrupt:
